@@ -1,202 +1,172 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
-   <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta charset="UTF-8">
-      <link href='https://fonts.googleapis.com/css?family=Heebo' rel='stylesheet'>
-      <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-      <!--highlight.js CSS-->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
-      <link rel="stylesheet" href="css/style.css">
-      <!--highlight.js Script-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <title>paging</title>
-   </head>
-   <body>
-      <div id="alerts" class="d-flex"></div>
-      <div id="profile" class="d-flex justify-content-center">
-         <div class="container">
-            <div id="paging" class="d-flex justify-content-center">
-               <img src="img/profile_100x100.jpg" alt="profile picture" class="rounded-circle" width="100" height="100">
-               <h1 class="display-3">paging</h1>
-            </div>
-         </div>
-      </div>
-      <div id="acknowledged-projects" class="d-flex justify-content-center" style="margin-top: 20px; margin-block-end: 5px;">
-         <div class="p-2 card" style="margin-right: 10px; max-width: 275px;">
-            <div class="card-body">
-                <div class="btn-group dropright">
-                    <h5 class="card-title">
-                        TCPSocket
-                    </h5>
-                </div>
-               <h6 class="card-subtitle mb-2 text-muted">Windows TCP Socket Class</h6>
-               <p class="card-text">
-               <ul>
-                  <li>Optional TLS Support</li>
-                  <li>Server and Client capability</li>
-               </ul>
-               <p>Language(s): C++</p>
-               </p>
-               <a href="https://github.com/ida64/TCPSocket" class="card-link">View on GitHub</a>
-            </div>
-         </div>
-         <div class="p-2 card" style="margin-left: 10px; max-width: 275px;">
-            <div class="card-body">
-               <h5 class="card-title">Virtue</h5>
-               <h6 class="card-subtitle mb-2 text-muted">Software Licensing Suite</h6>
-               <p class="card-text">
-               <ul>
-                  <li>Lightweight</li>
-                  <li data-toggle="tooltip" data-placement="left" title="Technological Protection Measure">Non-Invasive TPM</li>
-               </ul>
-               </p>
-               <p>Language(s): C++, Go, Protobuf</p>
-               <a class="card-link" href="#" data-toggle="modal" data-target="#platformSampleModal">View Sample</a>
-            </div>
-         </div>
-         <div class="p-2 card" style="margin-left: 10px; max-width: 275px;">
-            <div class="card-body">
-               <h5 class="card-title">ViewPort</h5>
-               <h6 class="card-subtitle mb-2 text-muted">Web Server and Backend</h6>
-               <p class="card-text">
-               <ul>
-                  <li>License Management</li>
-                  <li>Versioning and Distribution</li>
-               </ul>
-               </p>
-               <p>Language(s): Node.js</p>
-               <a class="card-link" href="#" data-toggle="modal" data-target="#vpSampleModal">View Sample</a>
-            </div>
-         </div>
-      </div>
-      <a class="d-flex justify-content-center" href="#" data-toggle="modal" data-target="#closedSourceModal">Why are some projects Unavailable?</a>
-      <div id="socials" class="d-flex justify-content-center">
-         <svg class="i-twitter" viewBox="0 0 64 64" width="32" height="32">
-            <a href="https://twitter.com/_paging" class="override-color" aria-label="View _paging on Twitter">
-               <path stroke-width="0" fill="currentColor" d="M60 16 L54 17 L58 12 L51 14 C42 4 28 15 32 24 C16 24 8 12 8 12 C8 12 2 21 12 28 L6 26 C6 32 10 36 17 38 L10 38 C14 46 21 46 21 46 C21 46 15 51 4 51 C37 67 57 37 54 21 Z" />
-            </a>
-         </svg>
-         <svg class="i-github" viewBox="0 0 64 64" width="32" height="32">
-            <a href="https://github.com/ida64" class="github-center override-color" aria-label="View ida64 on GitHub">
-               <path stroke-width="0" fill="currentColor" d="M32 0 C14 0 0 14 0 32 0 53 19 62 22 62 24 62 24 61 24 60 L24 55 C17 57 14 53 13 50 13 50 13 49 11 47 10 46 6 44 10 44 13 44 15 48 15 48 18 52 22 51 24 50 24 48 26 46 26 46 18 45 12 42 12 31 12 27 13 24 15 22 15 22 13 18 15 13 15 13 20 13 24 17 27 15 37 15 40 17 44 13 49 13 49 13 51 20 49 22 49 22 51 24 52 27 52 31 52 42 45 45 38 46 39 47 40 49 40 52 L40 60 C40 61 40 62 42 62 45 62 64 53 64 32 64 14 50 0 32 0 Z" />
-            </a>
-         </svg>
-         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
-            <path id="discord-click" d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
-         </svg>
-      </div>
-      <!--Modal to explain why certain projects are unavailable-->
-      <div class="modal fade" id="closedSourceModal" tabindex="-1" role="dialog" aria-labelledby="closedSourceLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-           <div class="modal-content">
-              <div class="modal-header">
-                 <h5 class="modal-title" id="closedSourceLabel">Why are some projects "<b>Unavailable</b>"?</h5>
-              </div>
-              <div class="modal-body">
-                 <p>Some projects are unavailable because they are closed source, or are not ready for public release but have been acknowledged.</p>
-                 <p>If you are a potential employer please reach out and I will provide source code to unavailable projects if deemed necessary.</p>
-              </div>
-              <div class="modal-footer">
-                 <button type="button" class="btn btn-primary" data-dismiss="modal">I Understand</button>
-              </div>
-           </div>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <meta name="author" content="paging">
+    <meta name="description" content="A really, really cool website.">
+    <link href='https://fonts.googleapis.com/css?family=Heebo' rel='stylesheet'>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!--highlight.js CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!--highlight.js Script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <title>paging</title>
+  </head>
+  <body>
+    <div id="alerts" class="d-flex"></div>
+    <div id="profile" class="d-flex justify-content-center">
+      <div class="container">
+        <div id="paging" class="d-flex justify-content-center">
+          <img src="img/profile_100x100.jpg" alt="profile picture" class="rounded-circle" width="100" height="100">
+          <h1 class="display-3">paging</h1>
         </div>
-     </div>
-     <div class="modal fade" id="platformSampleModal" tabindex="-1" role="dialog" aria-labelledby="platformSampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document" style="min-width: 1000px;">
-           <div class="modal-content">
-              <div class="modal-header">
-                 <h5 class="modal-title" id="platformSampleModalLabel">File: Virtue\vClient\vClient\Platform\Platform.h</h5>
-              </div>
-              <div class="modal-body">
-                <pre style="min-width: 900; max-height: 1000px;"><code class="language-cpp" id="platform-cpp-code"></code></pre>
-            </div>
-              <div class="modal-footer">
-                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-           </div>
+      </div>
+    </div>
+    <div id="acknowledged-projects" class="d-flex justify-content-center" style="margin-top: 20px; margin-block-end: 5px;">
+      <div class="p-2 card" style="margin-right: 10px; max-width: 275px;">
+        <div class="card-body">
+          <div class="btn-group dropright">
+            <h5 class="card-title">
+              TCPSocket
+            </h5>
+          </div>
+          <h6 class="card-subtitle mb-2 text-muted">Windows TCP Socket Class</h6>
+          <p class="card-text">
+          <ul>
+            <li>Optional TLS Support</li>
+            <li>Server and Client capability</li>
+          </ul>
+          <p>Language(s): C++</p>
+          </p> <a href="https://github.com/ida64/TCPSocket" class="card-link">View on GitHub</a> 
         </div>
-     </div>
-
-     <div class="modal fade" id="vpSampleModal" tabindex="-1" role="dialog" aria-labelledby="vpSampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document" style="min-width: 1000px;">
-           <div class="modal-content">
-              <div class="modal-header">
-                 <h5 class="modal-title" id="vpSampleModalLabel">File: ViewPort\routes\2fa.js</h5>
-              </div>
-              <div class="modal-body">
-                <pre style="min-width: 900; max-height: 1000px;"><code class="language-javascript" id="vp-node-code"></code></pre>
-            </div>
-              <div class="modal-footer">
-                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-           </div>
+      </div>
+      <div class="p-2 card" style="margin-left: 10px; max-width: 275px;">
+        <div class="card-body">
+          <h5 class="card-title">Virtue</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Software Licensing Suite</h6>
+          <p class="card-text">
+          <ul>
+            <li>Lightweight</li>
+            <li data-toggle="tooltip" data-placement="left" title="Technological Protection Measure">Non-Invasive TPM</li>
+          </ul>
+          </p>
+          <p>Language(s): C++, Go, Protobuf</p>
+          <a class="card-link" href="#" data-toggle="modal" data-target="#platformSampleModal">View Sample</a> 
         </div>
-     </div>
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/cpp.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
-      <script>
-         $("#discord-click").click(function() {
-             var $temp = $("<input>");
-             $("body").append($temp);
-             $temp.val("paging").select();
-             document.execCommand("copy");
-             $temp.remove();
-             var body = document.getElementById("alerts");
-             var alert = document.createElement("div");
-             alert.setAttribute("class", "alert alert-success show");
-             alert.setAttribute("role", "alert");
-             var strong = document.createElement("strong");
-             strong.innerHTML = "Success! Copied to clipboard.";
-             alert.appendChild(strong);
-             var span = document.createElement("span");
-             span.setAttribute("aria-hidden", "true");
-             span.innerHTML = "&times;";
-             body.appendChild(alert);
-         
-             setTimeout(function() {
-                 alert.remove();
-             }, 5000);
-         });
-         
-         $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-         })
-
-         function escapeHtml(unsafe)
-         {
-            return unsafe
-                 .replace(/&/g, "&amp;")
-                 .replace(/</g, "&lt;")
-                 .replace(/>/g, "&gt;")
-                 .replace(/"/g, "&quot;")
-                 .replace(/'/g, "&#039;");
-        }
-
-        $(document).ready(function() {
-            var platformCppCode = document.getElementById("platform-cpp-code");
-            fetch("https://ida64.github.io/Platform_h_Sample.txt")
-                .then(response => response.text())
-                .then(data => {
-                    platformCppCode.innerHTML = escapeHtml(data);
-                    hljs.highlightBlock(platformCppCode);
-                });
-            });
-
-            $(document).ready(function() {
-            var vpNodeCppCode = document.getElementById("vp-node-code");
-            fetch("https://ida64.github.io/2fa_js_Sample.txt")
-                .then(response => response.text())
-                .then(data => {
-                    vpNodeCppCode.innerHTML = escapeHtml(data);
-                    hljs.highlightBlock(vpNodeCppCode);
-                });
-            });
-      </script>
-   </body>
+      </div>
+      <div class="p-2 card" style="margin-left: 10px; max-width: 275px;">
+        <div class="card-body">
+          <h5 class="card-title">ViewPort</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Web Server and Backend</h6>
+          <p class="card-text">
+          <ul>
+            <li>License Management</li>
+            <li>Versioning and Distribution</li>
+          </ul>
+          </p>
+          <p>Language(s): Node.js</p>
+          <a class="card-link" href="#" data-toggle="modal" data-target="#vpSampleModal">View Sample</a> 
+        </div>
+      </div>
+    </div>
+    <div id="socials" class="d-flex justify-content-center">
+      <svg class="i-twitter" viewBox="0 0 64 64" width="32" height="32">
+        <a href="https://twitter.com/_paging" class="override-color" aria-label="View _paging on Twitter">
+          <path stroke-width="0" fill="currentColor" d="M60 16 L54 17 L58 12 L51 14 C42 4 28 15 32 24 C16 24 8 12 8 12 C8 12 2 21 12 28 L6 26 C6 32 10 36 17 38 L10 38 C14 46 21 46 21 46 C21 46 15 51 4 51 C37 67 57 37 54 21 Z" />
+        </a>
+      </svg>
+      <svg class="i-github" viewBox="0 0 64 64" width="32" height="32">
+        <a href="https://github.com/ida64" class="github-center override-color" aria-label="View ida64 on GitHub">
+          <path stroke-width="0" fill="currentColor" d="M32 0 C14 0 0 14 0 32 0 53 19 62 22 62 24 62 24 61 24 60 L24 55 C17 57 14 53 13 50 13 50 13 49 11 47 10 46 6 44 10 44 13 44 15 48 15 48 18 52 22 51 24 50 24 48 26 46 26 46 18 45 12 42 12 31 12 27 13 24 15 22 15 22 13 18 15 13 15 13 20 13 24 17 27 15 37 15 40 17 44 13 49 13 49 13 51 20 49 22 49 22 51 24 52 27 52 31 52 42 45 45 38 46 39 47 40 49 40 52 L40 60 C40 61 40 62 42 62 45 62 64 53 64 32 64 14 50 0 32 0 Z" />
+        </a>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
+        <path id="discord-click" d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z" />
+      </svg>
+    </div>
+    <div class="modal fade" id="platformSampleModal" tabindex="-1" role="dialog" aria-labelledby="platformSampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document" style="min-width: 1000px;">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="platformSampleModalLabel">File: Virtue\vClient\vClient\Platform\Platform.h</h5>
+          </div>
+          <div class="modal-body">
+            <pre style="min-width: 900; max-height: 1000px;"><code class="language-cpp" id="platform-cpp-code"></code></pre>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="vpSampleModal" tabindex="-1" role="dialog" aria-labelledby="vpSampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document" style="min-width: 1000px;">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="vpSampleModalLabel">File: ViewPort\routes\2fa.js</h5>
+          </div>
+          <div class="modal-body">
+            <pre style="min-width: 900; max-height: 1000px;"><code class="language-javascript" id="vp-node-code"></code></pre>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/cpp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+    <script>
+      $("#discord-click").click(function() {
+         // Honestly, probably a much better way to do this.
+      	var $temp = $("<input>");
+      	$("body").append($temp);
+      	$temp.val("paging").select();
+      	document.execCommand("copy");
+      	$temp.remove();
+      	var body = document.getElementById("alerts");
+      	var alert = document.createElement("div");
+      	alert.setAttribute("class", "alert alert-success show");
+      	alert.setAttribute("role", "alert");
+      	var strong = document.createElement("strong");
+      	strong.innerHTML = "Success! Copied to clipboard.";
+      	alert.appendChild(strong);
+      	var span = document.createElement("span");
+      	span.setAttribute("aria-hidden", "true");
+      	span.innerHTML = "&times;";
+      	body.appendChild(alert);
+      	setTimeout(function() {
+      		alert.remove();
+      	}, 5000);
+      });
+      $(function() {
+      	$('[data-toggle="tooltip"]').tooltip()
+      })
+      
+      function escapeHtml(unsafe) {
+      	return unsafe.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+      }
+      $(document).ready(function() {
+      	var platformCppCode = document.getElementById("platform-cpp-code");
+      	fetch("https://ida64.github.io/Platform_h_Sample.txt").then(response => response.text()).then(data => {
+      		platformCppCode.innerHTML = escapeHtml(data);
+      		hljs.highlightBlock(platformCppCode);
+      	});
+      });
+      $(document).ready(function() {
+      	var vpNodeCppCode = document.getElementById("vp-node-code");
+      	fetch("https://ida64.github.io/2fa_js_Sample.txt").then(response => response.text()).then(data => {
+      		vpNodeCppCode.innerHTML = escapeHtml(data);
+      		hljs.highlightBlock(vpNodeCppCode);
+      	});
+      });
+    </script>
+  </body>
 </html>

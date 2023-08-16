@@ -1,11 +1,7 @@
 /*
-    Copyright (C) 2023 Sequel.lol - All Rights Reserved
-    This source code file, and any associated files, are part of the proprietary software
-    project "ViewPort", and may not be used, copied, modified, distributed,
-    sublicensed, or sold without the express permission of the copyright owner.
-    Unauthorized use, reproduction, or distribution of this source code, or any portion
-    of it, may result in severe civil and criminal penalties, and will be prosecuted
-    to the fullest extent allowed by law.
+   Copyright (C) 2023 paging ("Sequel.lol") - All Rights Reserved
+   Unauthorized copying of this file, via any medium is strictly prohibited
+   Proprietary and confidential
 */
 
 const {
