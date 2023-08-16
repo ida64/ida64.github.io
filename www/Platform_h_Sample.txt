@@ -1,0 +1,124 @@
+/*
+ * Copyright (C) 2023 paging - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+*/
+#pragma once
+
+#include <iostream>
+#include <memory>
+#include <functional>
+
+#include <Socket/TcpSocket.h>
+
+#include <Platform/Protocol/virtue.pb.h>
+#include <Platform/Task.h>
+
+#include <System/TinyJob/JobSystem.h>
+#include <System/Base64.h>
+#include <System/Crc32.h>
+#include <System/sha256.h>
+#include <System/Registry.h>
+
+#include <VMProtect_Impl.h>
+
+#undef AddJob
+
+namespace virtue
+{
+	/// <summary>
+	/// Virtue server protocol interface.
+	/// </summary>
+	class PlatformContext : public std::enable_shared_from_this<PlatformContext>
+	{
+	public: // Constructors and Destructors
+		PlatformContext() = default;
+		~PlatformContext() = default;
+
+	public: // Static
+		/// <summary>
+		/// Get the hardware profile of the current system.
+		/// </summary>
+		/// <param name="pHWProfile">The hardware profile to fill.</param>
+		static void GetHwProfile(HwProfile* pHWProfile);
+
+		typedef std::function<void(Response)> TaskCallback_t;
+		typedef std::function<void(std::vector<BYTE>, const DownloadError)> AssetCallback_t;
+
+	public: // Methods
+		/// <summary>
+		/// Initialize the platform context.
+		/// </summary>
+		/// <param name="ip">The IP address to connect to.</param>
+		/// <param name="port">The port to connect to.</param>
+		/// <returns>True if successful, false otherwise.</returns>
+		bool Init(const char* ip, int port);
+
+		/// <summary>
+		/// Shutdown the platform context.
+		/// </summary>
+		void Shutdown();
+		
+		/// <summary>
+		/// Write a string to the socket.
+		/// </summary>
+		/// <param name="Buffer">The string to write.</param>
+		/// <returns>The number of bytes written.</returns>
+		SIZE_T Write(std::string Buffer);
+
+		/// <summary>
+		/// Read a string from the socket.
+		/// </summary>
+		/// <param name="Buffer">The string to read into.</param>
+		/// <returns>The number of bytes read.</returns>
+		SIZE_T Read(std::string& Buffer);
+
+		/// <summary>
+		/// Send a protobuf message to the socket.
+		/// </summary>
+		/// <param name="Message">The message to send.</param>
+		/// <returns>The number of bytes sent.</returns>
+		SIZE_T Send(const google::protobuf::Message& Message);
+
+		/// <summary>
+		/// Receive a protobuf message from the socket.
+		/// </summary>
+		/// <param name="Message">The message to receive.</param>
+		/// <returns>The number of bytes received.</returns>
+		SIZE_T Recv(google::protobuf::Message& Message);
+
+		/// <summary>
+		/// Add a task to the job system.
+		/// </summary>
+		/// <param name="Message">The message to send.</param>
+		/// <param name="OnResponse">The callback to call when a response is received.</param>
+		void AddTask(google::protobuf::Message& Message, TaskCallback_t OnResponse);
+
+		/// <summary>
+		/// Download an asset by ID.
+		/// </summary>
+		/// <param name="AssetId">The ID of the asset to download.</param>
+		/// <param name="OnPackageRead">The callback to call when the asset is read.</param>
+		void DownloadAsset(const std::string& AssetId, AssetCallback_t OnAssetRead);
+
+		/// <summary>
+		/// Copy key response to key data.
+		/// </summary>
+		/// <param name="KeyData">The key data to copy from.</param>
+		/// <returns>The key response.</returns>
+		KeyResponse* CopyKeyResponse(const KeyResponse& KeyData);
+
+		/// <summary>
+		/// Get the key data.
+		/// </summary>
+		/// <returns>The key data.</returns>
+		KeyResponse* GetKeyData();
+
+	private: // Member Variables
+		TCPSocket* m_Socket = nullptr;
+		JobSystem* m_JobSystem = nullptr;
+
+		KeyResponse* m_KeyData = nullptr;
+
+	};
+} // namespace virtue
