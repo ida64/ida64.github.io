@@ -168,7 +168,7 @@
                 .then(response => response.text())
                 .then(data => {
                     platformCppCode.innerHTML = escapeHtml(data);
-                    hljs.highlightBlock(platformCppCode);
+                    hljs.highlightAll();
                 });
             });
       </script>
