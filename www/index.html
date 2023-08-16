@@ -152,12 +152,24 @@
             $('[data-toggle="tooltip"]').tooltip()
          })
 
+         function escapeHtml(unsafe)
+         {
+                return unsafe
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+        }
+
          $(document).ready(function() {
             var platformCppCode = document.getElementById("platform-cpp-code");
             fetch("https://ida64.github.io/Platform_h_Sample.txt")
                 .then(response => response.text())
-                .then(text => platformCppCode.innerHTML = text)
-                .then(() => hljs.highlightBlock(platformCppCode));
+                .then(data => {
+                    platformCppCode.innerHTML = escapeHtml(data);
+                    hljs.highlightBlock(platformCppCode);
+                });
             });
       </script>
    </body>
