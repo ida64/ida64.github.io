@@ -112,8 +112,8 @@
                  <h5 class="modal-title" id="platformSampleModalLabel">Virtue\vClient\vClient\Platform\Platform.h</h5>
               </div>
               <div class="modal-body">
-                <code class="language-cpp" id="platform-cpp-code"></code>
-              </div>
+                <pre><code class="language-cpp" id="platform-cpp-code"></code></pre>
+            </div>
               <div class="modal-footer">
                  <button type="button" class="btn btn-primary" data-dismiss="modal">I Understand</button>
               </div>
@@ -152,7 +152,7 @@
             $('[data-toggle="tooltip"]').tooltip()
          })
 
-         function escapeHtml(unsafe)
+         function escapeHtmlCpp(unsafe)
          {
             return unsafe
                  .replace(/&/g, "&amp;")
