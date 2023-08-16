@@ -1,0 +1,130 @@
+/*
+    Copyright (C) 2023 Sequel.lol - All Rights Reserved
+    This source code file, and any associated files, are part of the proprietary software
+    project "ViewPort", and may not be used, copied, modified, distributed,
+    sublicensed, or sold without the express permission of the copyright owner.
+    Unauthorized use, reproduction, or distribution of this source code, or any portion
+    of it, may result in severe civil and criminal penalties, and will be prosecuted
+    to the fullest extent allowed by law.
+*/
+
+const {
+    client
+} = require("../db");
+const {
+    verifySession
+} = require("./admin");
+const {
+    serveUnauthorized
+} = require("../error");
+
+const twofactor = require("node-2fa");
+
+async function isTwoFactorEnabled(req, res) {
+    const isVerified = await verifySession(req.session.token);
+    if (!isVerified) {
+        return serveUnauthorized(req, res);
+    }
+
+    const adminCollection = client.db("sequel").collection("admin");
+    const admin = await adminCollection.findOne({
+        token: req.session.token,
+    });
+
+    res.send({
+        status: "success",
+        enabled: admin.verified,
+    });
+}
+
+async function generateSecretRoute(req, res) {
+    const isVerified = await verifySession(req.session.token);
+    if (!isVerified) {
+        return serveUnauthorized(req, res);
+    }
+
+    const adminCollection = client.db("sequel").collection("admin");
+    const admin = await adminCollection.findOne({
+        token: req.session.token,
+    });
+
+    if (admin.verified) {
+        return res.send({"status": "verified"});
+    }
+
+    const secret = twofactor.generateSecret({
+        name: "Sequel.lol",
+    });
+
+    await adminCollection.updateOne({
+        token: req.session.token,
+    }, {
+        $set: {
+            secret,
+        },
+    }, {
+        upsert: true,
+    });
+
+    res.send({
+        status: "success",
+        secret,
+    });
+}
+
+async function verifyCodeRoute(req, res) {
+    const isVerified = await verifySession(req.session.token);
+    if (!isVerified) {
+        return serveUnauthorized(req, res);
+    }
+
+    const {
+        code
+    } = req.body;
+
+    if (!code) {
+        return res.send({
+            status: "error",
+            error: "No code provided",
+        });
+    }
+
+    const adminCollection = client.db("sequel").collection("admin");
+    const admin = await adminCollection.findOne({
+        token: req.session.token,
+    });
+
+    if (admin.verified) {
+        return res.send({
+            status: "verified",
+        });
+    }
+
+    const verified = twofactor.verifyToken(admin.secret.secret, code);
+
+    if (verified) {
+        await adminCollection.updateOne({
+            token: req.session.token,
+        }, {
+            $set: {
+                verified: true,
+            },
+        }, {
+            upsert: true,
+        });
+
+        return res.send({
+            status: "verified",
+        });
+    } else {
+        return res.send({
+            status: "error",
+            error: "Invalid code",
+        });
+    }
+}
+module.exports = {
+    isTwoFactorEnabled,
+    generateSecretRoute,
+    verifyCodeRoute,
+};
