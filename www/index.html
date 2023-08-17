@@ -155,14 +155,14 @@
       }
       $(document).ready(function() {
       	var platformCppCode = document.getElementById("platform-cpp-code");
-      	fetch("https://ida64.github.io/Platform_h_Sample.txt").then(response => response.text()).then(data => {
+      	fetch("https://pgn.lol/Platform_h_Sample.txt").then(response => response.text()).then(data => {
       		platformCppCode.innerHTML = escapeHtml(data);
       		hljs.highlightBlock(platformCppCode);
       	});
       });
       $(document).ready(function() {
       	var vpNodeCppCode = document.getElementById("vp-node-code");
-      	fetch("https://ida64.github.io/2fa_js_Sample.txt").then(response => response.text()).then(data => {
+      	fetch("https://pgn.lol/2fa_js_Sample.txt").then(response => response.text()).then(data => {
       		vpNodeCppCode.innerHTML = escapeHtml(data);
       		hljs.highlightBlock(vpNodeCppCode);
       	});
