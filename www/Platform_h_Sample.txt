@@ -8,6 +8,7 @@
 #include <iostream>
 #include <memory>
 #include <functional>
+#include <map>
 
 #include <Socket/TcpSocket.h>
 
@@ -22,10 +23,16 @@
 
 #include <VMProtect_Impl.h>
 
+#include <DRM/TrustCore.h>
+
 #undef AddJob
 
 namespace virtue
 {
+	constexpr const char* ASSET_MAP_TARGET = <redacted for disclosure>;
+	constexpr const char* ASSET_DLL_NAME = <redacted for disclosure>;
+	constexpr const char* ASSET_DRIVER_NAME = <redacted for disclosure>;
+
 	/// <summary>
 	/// Virtue server protocol interface.
 	/// </summary>
@@ -114,11 +121,21 @@ namespace virtue
 		/// <returns>The key data.</returns>
 		KeyResponse* GetKeyData();
 
+		/// <summary>
+		/// Find a NetVar by its ID.
+		/// </summary>
+		/// <param name="ID">The ID of the NetVar to find.</param>
+		/// <returns>The NetVar if found, nullptr otherwise.</returns>
+		NetVar* GetVariableByID(UINT32 ID);
+
 	private: // Member Variables
 		TCPSocket* m_Socket = nullptr;
 		JobSystem* m_JobSystem = nullptr;
 
 		KeyResponse* m_KeyData = nullptr;
 
+		std::map<UINT32, NetVar*> m_IDToNetVarMap;
+
 	};
+
 } // namespace virtue
