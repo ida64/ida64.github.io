@@ -23,8 +23,6 @@
 
 #include <VMProtect_Impl.h>
 
-#include <DRM/TrustCore.h>
-
 #undef AddJob
 
 namespace virtue
